@@ -1,0 +1,73 @@
+studArr = []
+for x in range(10):
+    print("Enter record key :")
+
+    RK = input()
+
+    InsertHash(RK)
+
+
+
+print ("Search record key")
+
+RK = input()
+
+x = SearchHash(RK)
+
+if x == 0 :
+   print("not found")
+else:
+
+   print("found")
+
+
+
+for x in range(10):
+
+   print(studArr(x))
+
+
+
+def InsertHash(Reckey):
+
+    HashKey = Hash(Reckey, 10)
+
+    while studArr(Hashkey) != 0:
+
+        Hashkey = Hashkey + 1
+
+        if Hashkey > 10:
+
+            Hashkey = 0
+
+    studArr.insert(Hashkey , Reckey)
+
+
+
+def SearchHash(Reckey):
+
+    hashkey = Hash(Reckey, 10)
+
+    while studArr(hashkey) != Reckey:
+
+        Totsearches = Totsearches + 1
+
+        hashkey = hashkey + 1
+
+        if hashkey > 10:
+
+            hashkey = 0
+
+            if Totsearches > 10:
+
+                 return 0
+
+    return hashkey
+
+
+
+def Hash(Keyval , MaxPos):
+
+    indexpos = KeyVal%MaxPos + 1
+
+    return indexpos
